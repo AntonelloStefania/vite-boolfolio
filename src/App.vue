@@ -1,10 +1,17 @@
-<script setup>
+<script >
+
+import AppMain from './components/AppMain.vue';
+export default{
+  components:{
+    AppMain,
+  }
+}
 </script>
 
 <template>
-  we uagliò bell stu maglion, tira o vient 
+  <AppMain/>
 </template>
 
-<style >
-
+<style lang="scss">
+@use './styles/generals.scss' as *;
 </style>
