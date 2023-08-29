@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  ciao Silvia amore mio 
+  we uagliò bell stu maglion, tira o vient 
 </template>
 
 <style >
