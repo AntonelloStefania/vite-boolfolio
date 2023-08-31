@@ -9,7 +9,7 @@ import AppLoader from './AppLoader.vue';
             return {
                baseUrl: 'http://localhost:8000',
                sites: [],
-               loading: true, 
+               loading: false, 
             }
         },created() {
             this.getSites();
@@ -18,9 +18,8 @@ import AppLoader from './AppLoader.vue';
             getSites(){
                 this.loading=true;
                 axios.get(`${this.baseUrl}/api/sites`).then((response)=>{
-                    console.log(response)
                     if(response.data.success){
-                        this.sites = response.data.results;
+                        this.sites = response.data.results.data;
                         this.loading=false;
                     }
                     else{
