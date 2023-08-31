@@ -27,6 +27,13 @@ import AppLoader from './AppLoader.vue';
                         //poi vediamo
                     }
                 })
+            },
+            truncateText(text){
+                if(text.length > 50){
+                    return text.substr(0,50) + '...';
+                }else{
+                    return text;
+                }
             }
             
         },
@@ -36,18 +43,19 @@ import AppLoader from './AppLoader.vue';
     <div class="container">
         <div class="row">
             <AppLoader  v-if="loading"/>
-            <div v-else class="col-12 col-md-4 my-2" v-for="site in sites" :key="site">
-                <div class="card">
-                    <div class="card-img-top ">
-                        <img :src="`${baseUrl}/storage/${site.image}`" class="img-fluid w-100" alt="">
+            <div v-else class="col-12 col-md-4 d-flex card-custom my-2" v-for="site in sites" :key="site">
+                <div class="card p-1  ">
+                    <div class="card-img-top">
+                        <img :src="`${baseUrl}/storage/${site.image}`" class=" w-100 card-img"  :alt="`${site.title}`">
                     </div>
                     <div class="card-body">
                         <div class="card-header">
                             {{ site.title }}
                         </div>
-                    </div>
-                    <div class="card-text">
-                        {{ site.description }}
+                       
+                        <div class="card-text my-3">
+                            {{truncateText( site.description) }}
+                        </div>
                     </div>
                  </div>
             </div>
@@ -56,5 +64,10 @@ import AppLoader from './AppLoader.vue';
    
 </template>
 <style lang="scss">
-    
+.card-custom{
+
+    .card-img{
+        aspect-ratio: 16/9;
+    }
+}
 </style>
