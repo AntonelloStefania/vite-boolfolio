@@ -1,9 +1,11 @@
 <script>
 import axios from 'axios';
-import AppLoader from './AppLoader.vue';
+import AppLoader from '../components/AppLoader.vue';
+
     export default {
         components:{
             AppLoader,
+            
         },
         data() {
             return {
@@ -39,6 +41,7 @@ import AppLoader from './AppLoader.vue';
     }
 </script>
 <template>
+    
     <div class="container">
         <div class="row">
             <AppLoader  v-if="loading"/>
@@ -51,9 +54,18 @@ import AppLoader from './AppLoader.vue';
                         <div class="card-header">
                             {{ site.title }}
                         </div>
+                        <div class="text-center">
+                            <span class="fw-bold me-1">Type:</span><span>{{ site.type.category }}</span>
+                        </div>
                        
                         <div class="card-text my-3">
                             {{truncateText( site.description) }}
+                        </div>
+                        <div>
+                            <span class="fw-bold me-1">Languages:</span>
+                            <span v-for="technology in site.technologies" :key="technology" class="badge text-bg-warning mx-2">
+                                {{ technology.tech_name }}
+                            </span>
                         </div>
                     </div>
                  </div>
