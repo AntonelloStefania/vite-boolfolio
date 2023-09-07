@@ -1,13 +1,17 @@
-<template lang="">
-    <div>
+<script>
+import ContactForm from '../components/ContactForm.vue'
+    export default {
+        components:{
+            ContactForm,
+        }
         
+    }
+</script>
+<template >
+    <div>
+        <ContactForm/>
     </div>
 </template>
-<script>
-export default {
-    
-}
-</script>
 <style lang="">
     
 </style>
